@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+       :root {
+            --color-purple: #B6349A;
+            --color-stroke: #F8F7F8;
+            --color-stroke2: #FEF5FD;
+            --text-placeholder: #686069;
+            --links-footer: #5F6980;
+            --bg-color: #FCFCFC;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--color-purple) !important;
+        }
+
+        .step-done {
+            background-color: var(--color-purple);
+            color: white;
+        }
+
+        .step-active {
+            border: 2px solid var(--color-purple);
+            color: var(--color-purple);
+        }
+
+        .step-inactive {
+            background-color: var(--color-stroke);
+            color: var(--text-placeholder);
+        }
+    </style>
+</head>
+<body class="bg-(--bg-color) font-sans">
+    <header>
+        <nav class="pt-[20px] pb-[15px] border-b-[1.5px] border-b-(--color-stroke) mb-[20px]">
+            <div class="flex items-center justify-around">
+                <div class="flex gap-[20px] md:hidden lg:hidden">
+                    <i class="fa-solid fa-bars cursor-pointer" id="mobile_menu_btn"></i>
+                </div>
+                <div class="flex items-center gap-10 hidden md:flex lg:flex">
+                    <img src="images/Union.png" alt="">
+                    <ul class="flex items-center gap-10">
+                        <li><a href="index.html" class="font-semibold hover:text-(--color-purple)">Home</a></li>
+                        <li><a href="category.html" class="font-semibold hover:text-(--color-purple)">Products</a></li>
+                    </ul>
+                </div>
+                <div class="flex items-center gap-[5px] w-[247px] lg:w-[458px] lg:h-[64px] h-[40px] rounded-full border-[2px] border-(--color-stroke) ps-[5px] lg:ps-[15px] pe-[5px]">
+                    <div class="w-[30px] h-[30px] lg:w-[32px] rounded-[50%] bg-(--color-stroke2) text-center content-center">
+                        <i class="fa-solid fa-magnifying-glass text-(--color-purple)"></i>
+                    </div>
+                    <input type="text" placeholder="Search by product name" class="outline-none bg-transparent">
+                </div>
+                <div class="flex gap-[20px] items-center">
+                    <a href="cart.html">
+                        <div class="w-[40px] h-[40px] lg:w-[95px] lg:h-[40px] bg-(--color-stroke2) rounded-full flex items-center justify-center gap-[8px] p-[6px] pe-[12px]" id="cart_dynamic">
+                            <div class="bg-white w-[40px] h-[28px] rounded-full text-(--color-purple) text-[12px] font-semibold flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <span id="count_cart"></span>
+                            </div>
+                            <p class="text-[14px] font-medium capitalize hidden lg:block">cart</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile_menu" class="hidden bg-white border-b border-(--color-stroke) px-6 py-4 md:hidden">
+            <ul class="flex flex-col gap-4">
+                <li><a href="index.html" class="font-semibold hover:text-(--color-purple)">Home</a></li>
+                <li><a href="category.html" class="font-semibold hover:text-(--color-purple)">Products</a></li>
+                <!-- <li><a href="log_&_reg.html" class="font-semibold hover:text-(--color-purple)">Login / Register</a></li> -->
+            </ul>
+        </div>
+    </header>
+
+    <!-- ==========================STEPS=============================== -->
+    <div class="flex items-center justify-center gap-3 my-[20px] px-4">
+        <div class="flex items-center gap-2">
+            <div class="w-[28px] h-[28px] rounded-full step-done flex items-center justify-center text-[12px] font-bold">
+                <i class="fa-solid fa-check text-[10px]"></i>
+            </div>
+            <p class="text-[12px] font-semibold text-(--color-purple) hidden sm:block">Cart</p>
+        </div>
+        <div class="h-[2px] w-[30px] bg-(--color-purple)"></div>
+        <div class="flex items-center gap-2">
+            <div class="w-[28px] h-[28px] rounded-full step-active flex items-center justify-center text-[12px] font-bold">2</div>
+            <p class="text-[12px] font-semibold text-(--color-purple) hidden sm:block">Checkout</p>
+        </div>
+        <div class="h-[2px] w-[30px] bg-(--color-stroke)"></div>
+        <div class="flex items-center gap-2">
+            <div class="w-[28px] h-[28px] rounded-full step-inactive flex items-center justify-center text-[12px] font-bold">3</div>
+            <p class="text-[12px] font-semibold text-(--text-placeholder) hidden sm:block">Confirmation</p>
+        </div>
+    </div>
+
+    
+    <main class="px-[1rem] py-[1rem] lg:flex justify-center gap-[40px] lg:px-[50px]">
+
+        <!-- ============ Forms============================================== -->
+        <div class="lg:w-[600px] space-y-[20px]">
+
+            <!--================================= Delivery Address========================================== -->
+            <div class="p-[20px] border-2 border-(--color-stroke) rounded-[16px] space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-(--color-stroke2) w-[40px] h-[40px] rounded-full flex justify-center items-center">
+                        <i class="fa-solid fa-location-dot text-(--color-purple)"></i>
+                    </div>
+                    <p class="text-[16px] font-semibold">Delivery Address</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[12px] font-medium text-(--text-placeholder)">First Name</label>
+                        <input type="text" placeholder="John" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[12px] font-medium text-(--text-placeholder)">Last Name</label>
+                        <input type="text" placeholder="Doe" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-[12px] font-medium text-(--text-placeholder)">Street Address</label>
+                    <input type="text" placeholder="123 Main Street" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[12px] font-medium text-(--text-placeholder)">City</label>
+                        <input type="text" placeholder="New York" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[12px] font-medium text-(--text-placeholder)">ZIP Code</label>
+                        <input type="text" placeholder="07114" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-[12px] font-medium text-(--text-placeholder)">Phone Number</label>
+                    <input type="tel" placeholder="+1 (555) 000-0000" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                </div>
+            </div>
+
+            <!--===================================== Delivery Time====================================== -->
+            <div class="p-[20px] border-2 border-(--color-stroke) rounded-[16px] space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-(--color-stroke2) w-[40px] h-[40px] rounded-full flex justify-center items-center">
+                        <i class="fa-regular fa-clock text-(--color-purple)"></i>
+                    </div>
+                    <p class="text-[16px] font-semibold">Delivery Time</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3" id="time_slots">
+                    <div class="time-slot border-[1.5px] border-(--color-purple) rounded-[12px] p-[12px] text-center cursor-pointer bg-(--color-stroke2)" onclick="selectSlot(this)">
+                        <p class="text-[12px] font-semibold text-(--color-purple)">Today</p>
+                        <p class="text-[11px] text-(--text-placeholder)">2:00 - 4:00 PM</p>
+                    </div>
+                    <div class="time-slot border-[1.5px] border-(--color-stroke) rounded-[12px] p-[12px] text-center cursor-pointer" onclick="selectSlot(this)">
+                        <p class="text-[12px] font-semibold">Today</p>
+                        <p class="text-[11px] text-(--text-placeholder)">4:00 - 6:00 PM</p>
+                    </div>
+                    <div class="time-slot border-[1.5px] border-(--color-stroke) rounded-[12px] p-[12px] text-center cursor-pointer" onclick="selectSlot(this)">
+                        <p class="text-[12px] font-semibold">Tomorrow</p>
+                        <p class="text-[11px] text-(--text-placeholder)">9:00 - 11:00 AM</p>
+                    </div>
+                    <div class="time-slot border-[1.5px] border-(--color-stroke) rounded-[12px] p-[12px] text-center cursor-pointer" onclick="selectSlot(this)">
+                        <p class="text-[12px] font-semibold">Tomorrow</p>
+                        <p class="text-[11px] text-(--text-placeholder)">12:00 - 2:00 PM</p>
+                    </div>
+                    <div class="time-slot border-[1.5px] border-(--color-stroke) rounded-[12px] p-[12px] text-center cursor-pointer" onclick="selectSlot(this)">
+                        <p class="text-[12px] font-semibold">Tomorrow</p>
+                        <p class="text-[11px] text-(--text-placeholder)">4:00 - 6:00 PM</p>
+                    </div>
+                    <div class="time-slot border-[1.5px] border-(--color-stroke) rounded-[12px] p-[12px] text-center cursor-pointer" onclick="selectSlot(this)">
+                        <p class="text-[12px] font-semibold">Wed</p>
+                        <p class="text-[11px] text-(--text-placeholder)">9:00 - 11:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="p-[20px] border-2 border-(--color-stroke) rounded-[16px] space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-(--color-stroke2) w-[40px] h-[40px] rounded-full flex justify-center items-center">
+                        <i class="fa-solid fa-credit-card text-(--color-purple)"></i>
+                    </div>
+                    <p class="text-[16px] font-semibold">Payment Method</p>
+                </div>
+
+                <!-- ========================Payment Options==================================== -->
+                <div class="flex gap-3">
+                    <div class="payment-opt flex-1 border-[1.5px] border-(--color-purple) bg-(--color-stroke2) rounded-[12px] p-[12px] flex items-center gap-2 cursor-pointer" onclick="selectPayment(this, 'card')">
+                        <i class="fa-solid fa-credit-card text-(--color-purple)"></i>
+                        <p class="text-[13px] font-semibold text-(--color-purple)">Card</p>
+                    </div>
+                    <div class="payment-opt flex-1 border-[1.5px] border-(--color-stroke) rounded-[12px] p-[12px] flex items-center gap-2 cursor-pointer" onclick="selectPayment(this, 'cash')">
+                        <i class="fa-solid fa-money-bill text-(--text-placeholder)"></i>
+                        <p class="text-[13px] font-semibold">Cash</p>
+                    </div>
+                    <div class="payment-opt flex-1 border-[1.5px] border-(--color-stroke) rounded-[12px] p-[12px] flex items-center gap-2 cursor-pointer" onclick="selectPayment(this, 'wallet')">
+                        <i class="fa-solid fa-wallet text-(--text-placeholder)"></i>
+                        <p class="text-[13px] font-semibold">Wallet</p>
+                    </div>
+                </div>
+
+                <!-- ========================Card Fields =================================-->
+                <div id="card_fields" class="space-y-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[12px] font-medium text-(--text-placeholder)">Card Number</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="card_number" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex flex-col gap-1">
+                            <label class="text-[12px] font-medium text-(--text-placeholder)">Expiry Date</label>
+                            <input type="text" placeholder="MM / YY" maxlength="7" id="expiry" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label class="text-[12px] font-medium text-(--text-placeholder)">CVV</label>
+                            <input type="text" placeholder="123" maxlength="3" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[12px] font-medium text-(--text-placeholder)">Name on Card</label>
+                        <input type="text" placeholder="John Doe" class="border-[1.5px] border-(--color-stroke) rounded-[10px] px-[12px] py-[10px] text-[14px]">
+                    </div>
+                </div>
+
+                <!-- Cash Message -->
+                <div id="cash_fields" class="hidden bg-(--color-stroke2) rounded-[12px] p-[16px]">
+                    <p class="text-[14px] font-medium text-(--text-placeholder)"><i class="fa-solid fa-circle-info text-(--color-purple) me-2"></i>Pay with cash when your order arrives.</p>
+                </div>
+
+                <!-- Wallet Message -->
+                <div id="wallet_fields" class="hidden bg-(--color-stroke2) rounded-[12px] p-[16px]">
+                    <p class="text-[14px] font-medium text-(--text-placeholder)"><i class="fa-solid fa-wallet text-(--color-purple) me-2"></i>Your wallet balance will be used for this order.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ========================================= Order Summary=============================================== -->
+        <div class="mt-[20px] lg:mt-0 lg:w-[384px]">
+            <div class="p-[20px] border-2 border-(--color-stroke) rounded-[32px] bg-white space-y-4 lg:sticky lg:top-[20px]">
+
+                <p class="text-[18px] font-semibold">Order Summary</p>
+
+                <!-- ==================================Products List======================================= -->
+                <div class="space-y-3 max-h-[250px] overflow-y-auto" id="checkout_products">
+                    <!--=============================== Filled by JS========================================= -->
+                </div>
+
+                <hr class="border-(--color-stroke)">
+
+                <div class="space-y-2">
+                    <p class="text-[13px] font-medium text-(--links-footer) flex justify-between">Items total <span class="text-[15px] font-semibold text-black" id="co_total">$0.00</span></p>
+                    <p class="text-[13px] font-medium text-(--links-footer) flex justify-between">Delivery fee <span class="text-[15px] font-semibold text-black">$5.78</span></p>
+                </div>
+
+                <hr class="border-(--color-stroke)">
+
+                <p class="text-[15px] font-bold flex justify-between">Subtotal <span class="text-(--color-purple)" id="co_subtotal">$0.00</span></p>
+
+                <!--======================================== Promo Code============================================== -->
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Promo code" id="promo_input" class="flex-1 border-[1.5px] border-(--color-stroke) rounded-full px-[14px] py-[10px] text-[13px]">
+                    <button onclick="applyPromo()" class="bg-(--color-purple) text-white rounded-full px-[16px] py-[10px] text-[13px] font-semibold">Apply</button>
+                </div>
+                <p id="promo_msg" class="text-[12px] hidden"></p>
+
+                <!-- Place Order -->
+                <button onclick="placeOrder()" class="w-full flex items-center justify-between bg-(--color-purple) text-white rounded-full py-[14px] px-[20px] text-[15px] font-semibold mt-[10px]">
+                    <span class="flex gap-2 items-center"><i class="fa-solid fa-bag-shopping"></i> Place Order</span>
+                    <span id="co_subtotal_btn">$0.00</span>
+                </button>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ====================================SUCCESS MODAL======================================== -->
+    <div id="success_modal" class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+        <div class="bg-white rounded-[24px] p-[40px] text-center space-y-4 mx-4 max-w-[360px] w-full">
+            <div class="w-[70px] h-[70px] rounded-full bg-(--color-stroke2) flex items-center justify-center m-auto">
+                <i class="fa-solid fa-check text-(--color-purple) text-[28px]"></i>
+            </div>
+            <p class="text-[20px] font-bold">Order Placed!</p>
+            <p class="text-[14px] text-(--text-placeholder)">Your order has been placed successfully. We'll deliver it to you soon!</p>
+            <a href="index.html" onclick="clearCart()" class="block bg-(--color-purple) text-white rounded-full py-[12px] px-[24px] text-[14px] font-semibold">Back to Home</a>
+        </div>
+    </div>
+
+
+
+    <!-- =================================footer=============================================== -->
+
+     <footer
+        class=" px-[18px] py-[50px] flex flex-col  gap-[50px] md:flex-row md:px[50px] md:mt-[100px] lg:flex-row  lg:px-[100px] lg:mt-[100px]  ">
+        <div>
+            <img src="images/Logo.png" alt="" class="w-[50px] ">
+        </div>
+        <div class="flex gap-[100px]  md:gap-[50px] lg:gap-[150px] ">
+            <div class="flex flex-col gap-[50px]  md:flex-row lg:gap-[150px] lg:flex-row">
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">About</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">About Us</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Our Branches</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Changelog</a>
+                </div>
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Help & Support</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">Terms of Privacy</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Privacy Policy</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Security</a>
+                </div>
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Social</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">Facebook</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Instagram</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Twitter</a>
+                </div>
+
+            </div>
+            <div class="flex flex-col gap-[50px]  md:flex-row lg:gap-[150px] lg:flex-row">
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Quick Links</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">FAQs</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Recipes</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Contact Us</a>
+                </div>
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Company</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">Blog</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Fruits",
+      "image": "images/orange.png"
+    },
+    {
+      "id": 2,
+      "name": "Vegetables",
+      "image": "images/lamon.png"
+    },
+    {
+      "id": 3,
+      "name": "Dairy",
+      "image": "images/milk2.png"
+    },
+    {
+      "id": 4,
+      "name": "Bakery",
+      "image": "images/bread.png"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 101,
+      "name": "Singo Pears",
+      "categoryId": 1,
+      "price": 99.99,
+      "oldPrice": 200.00,
+      "image": "images/orange.png",
+      "rating": 4.5,
+      "stock": 20,
+      "isBestSeller": true,
+      "description": "Fresh imported pears with premium quality."
+    },
+    {
+      "id": 102,
+      "name": "Fresh Milk",
+      "categoryId": 3,
+      "price": 49.99,
+      "oldPrice": 70.00,
+      "image": "images/milk2.png",
+      "rating": 4.2,
+      "stock": 35,
+      "isBestSeller": true,
+      "description": "Organic full cream milk."
+    },
+    {
+      "id": 103,
+      "name": "Organic Eggs",
+      "categoryId": 3,
+      "price": 79.99,
+      "oldPrice": 100.00,
+      "image": "images/egg3.png",
+      "rating": 4.8,
+      "stock": 50,
+      "isBestSeller": true,
+      "description": "Farm fresh organic eggs."
+    },
+    {
+      "id": 104,
+      "name": "Cheddar Cheese",
+      "categoryId": 3,
+      "price": 120.00,
+      "oldPrice": 150.00,
+      "image": "images/cheese1.png",
+      "rating": 4.6,
+      "stock": 15,
+      "isBestSeller": false,
+      "description": "Premium cheddar cheese block."
+    },
+    {
+      "id": 105,
+      "name": "Lemon",
+      "categoryId": 2,
+      "price": 20.00,
+      "oldPrice": 25.00,
+      "image": "images/lamon.png",
+      "rating": 4.6,
+      "stock": 15,
+      "isBestSeller": true,
+      "description": "Premium cheddar cheese block."
+    },
+    {
+      "id": 106,
+      "name": "Strawberry",
+      "categoryId": 1,
+      "price": 120.00,
+      "oldPrice": 150.00,
+      "image": "images/strop.png",
+      "rating": 4.6,
+      "stock": 15,
+      "isBestSeller": true,
+      "description": "Premium cheddar cheese block."
+    },
+    {
+      "id": 107,
+      "name": "Cheddar Cheese",
+      "categoryId": 3,
+      "price": 120.00,
+      "oldPrice": 150.00,
+      "image": "images/cheese1.png",
+      "rating": 4.6,
+      "stock": 15,
+      "isBestSeller": true,
+      "description": "Premium cheddar cheese block."
+    },
+    {
+      "id": 108,
+      "name": "Cheddar Cheese",
+      "categoryId": 3,
+      "price": 120.00,
+      "oldPrice": 150.00,
+      "image": "images/cheese1.png",
+      "rating": 4.6,
+      "stock": 15,
+      "isBestSeller": false,
+      "description": "Premium cheddar cheese block."
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "name": "Ola Elnaggar",
+      "email": "ola@email.com",
+      "password": "123456",
+      "cart": [
+        {
+          "productId": 101,
+          "quantity": 2
+        }
+      ]
+    }
+  ],
+
+  "orders": [
+    {
+      "id": 5001,
+      "userId": 1,
+      "items": [
+        {
+          "productId": 102,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49.99,
+      "status": "Delivered",
+      "date": "2026-02-10"
+    }
+  ]
+}

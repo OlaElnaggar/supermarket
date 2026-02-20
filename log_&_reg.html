@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        :root{
+        --color-purple: #B6349A;
+        --color-stroke:#F8F7F8;
+        --color-stroke2:#FEF5FD;
+        --text-placeholder:#686069;
+        --links-footer:#5F6980;
+        --shadow-color: 1px 0px 30px #FEF5FD;
+      }
+      .incorrect{
+        border-color: red;
+      }
+    </style>
+</head>
+<body class=" lg:flex lg:content-center md:content-center h-screen p-0 m-0 ">
+    <section class="flex flex-col-reverse justify-center  h-screen  lg:flex-row lg:w-[800px] lg:h-[500px] lg:rounded-[30px] lg:shadow-(--shadow-color) lg:m-auto  border-1 border-(--color-stroke2) relative overflow-hidden" >
+        <div class=" mt-[90px] space-y-8 text-center  pt-[80px] lg:w-[50%] lg:block lg:mt-0 " id="login_form" >
+            <h1 class="text-[30px] font-bold capitalize " >login</h1>
+            <form action="" class="space-y-6">
+            <div class="relative  ">
+                
+                   <i class="fa-solid fa-envelope-open text-(--color-purple) absolute top-1/2 -translate-y-1/2 left-[calc(50%-115px)] text-[14px]"></i>
+                
+                <input type="email" placeholder="Email" class="w-[250px] h-[30px]  focus:outline-(--color-purple) bg-(--color-stroke2) rounded-full px-[31px] py-[20px] placeholder:text-gray-400 placeholder:text-[16px] required " id="email_log">
+            </div>
+            
+            <div class="relative  ">
+
+                <i class="fa-solid fa-lock text-(--color-purple) absolute top-1/2 -translate-y-1/2 left-[calc(50%-115px)] text-[14px]"></i>
+                
+                <input type="password" placeholder="password " class="w-[250px] h-[30px]  focus:outline-(--color-purple) bg-(--color-stroke2) rounded-full px-[31px] py-[20px] placeholder:text-gray-400 placeholder:text-[16px] required" id="pass_log">
+            </div>
+
+            <button class="w-[250px] h-[40px] text-white  bg-(--color-purple) rounded-full font-semibold cursor-pointer" id="login_btn">login</button>
+            </form>
+            <div class="space-x-3">
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-facebook"></i></a>
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-google"></i></a>
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-github"></i></a>
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-square-linkedin"></i></a>
+            </div>
+            </div>
+<!-- ------------------------------------Register------------------------------------------- -->
+            <div class=" hidden mt-[-250px]  space-y-8 text-center pt-[50px] lg:mt-0 lg:w-[50%] lg:block" id="register_form" >
+            <h1 class="text-[30px] font-bold capitalize " >register</h1>
+            <!-- <p id="error"></p> -->
+            <form action="" class="space-y-6" id="form_reg">
+            <div class="relative  ">
+            
+                    <i class="fa-solid fa-user text-(--color-purple) absolute top-1/2 -translate-y-1/2 left-[calc(50%-115px)] text-[14px]"></i>
+                
+                <input type="text" placeholder="Enter your name" class="w-[250px] h-[30px]  focus:outline-(--color-purple) bg-(--color-stroke2) rounded-full px-[31px] py-[20px] placeholder:text-gray-400 placeholder:text-[16px] required " id="name_reg">
+            </div>
+            <div class="relative  ">
+                
+                    <i class="fa-solid fa-envelope-open text-(--color-purple) absolute top-1/2 -translate-y-1/2 left-[calc(50%-115px)] text-[14px]"></i>
+                
+                <input type="email" placeholder="Email" class="w-[250px] h-[30px]  focus:outline-(--color-purple) bg-(--color-stroke2) rounded-full px-[31px] py-[20px] placeholder:text-gray-400 placeholder:text-[16px] required " id="emai_reg">
+            </div>
+            
+            <div class="relative  ">
+                    <i class="fa-solid fa-lock text-(--color-purple) absolute top-1/2 -translate-y-1/2 left-[calc(50%-115px)] text-[14px]"></i>
+                <input type="password" placeholder="password " class="w-[250px] h-[30px]  focus:outline-(--color-purple) bg-(--color-stroke2) rounded-full px-[31px] py-[20px] placeholder:text-gray-400 placeholder:text-[16px] required" id="paasword_reg">
+            </div>
+
+            <button type="button" class="w-[250px] h-[40px] text-white  bg-(--color-purple) rounded-full font-semibold cursor-pointer" id="register_btn">Register</button>
+            </form>
+            <div class="space-x-3">
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-facebook"></i></a>
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-google"></i></a>
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-github"></i></a>
+                <a href="" class="w-[50px] h-[50px] bg-(--color-stroke2) border-[2px] border-(--color-stroke2) hover:border-(--color-purple) text-(--color-purple) text-[24px] rounded-[10px] p-[5px]"><i class="fa-brands fa-square-linkedin"></i></a>
+            </div>
+        </div>
+
+        <!-- ==================================== -->
+
+
+        <div class="flex flex-col-reverse items-center justify-between rounded-[100px] py-[50px] top-[-60%] absolute bg-(--color-purple) w-[100%] h-screen lg:flex-row lg:w-[800px] lg:h-[500px] lg:rounded-[150px] lg:top-0  lg:left-[50%] z-2" id="wraper">
+            <div class="text-center lg:w-[50%] text-white content-center space-y-4">
+                <p class="capitalize text-[40px] font-bold ">hello, welcome!</p>
+                <p>Don't have  an account?</p>
+                <button class="border-1 py-[10px] px-[25px] rounded-[10px] cursor-pointer" id="rigester_move">Register</button>
+            </div>
+            <div class="text-center lg:w-[50%] text-white content-center space-y-4">
+                <p class="capitalize text-[40px] font-bold "> welcome back!</p>
+                <p>already have  an account?</p>
+                <button class="border-1 py-[10px] px-[25px] rounded-[10px] cursor-pointer" id="login_move">Login</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="./js/login_animation.js"></script>
+    <script src="./js/validation_reg.js"></script>
+    <script src="./js/validation_log.js"></script>
+</body>
+</html>

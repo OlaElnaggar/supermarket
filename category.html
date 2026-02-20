@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        :root{
+        --color-purple: #B6349A;
+        --color-stroke:#F8F7F8;
+        --color-stroke2:#FEF5FD;
+        --text-placeholder:#686069;
+        --links-footer:#5F6980;
+      }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <header>
+        <nav class=" pt-[20px] pb-[15px] border-b-[1.5px] border-b-(--color-stroke) mb-[20px]">
+            <div class="flex items-center justify-around">
+                 <div class="flex gap-[20px] md:hidden lg:hidden">
+                   <button id="mobile_menu_btn" class="text-xl"><i class="fa-solid fa-bars"></i></button>
+                </div>
+                <div class="flex items-center gap-10 hidden  md:flex lg:flex">
+                <img src="images/Union.png" alt="" >
+                    <ul class="flex items-center gap-10 ">
+                        <li><a href="index.html" class="font-semibold hover:text-(--color-purple)">Home</a></li>
+                        <li><a href="category.html" class="font-semibold hover:text-(--color-purple)">Products</a></li>
+                    </ul>
+                </div>
+                <div
+                    class="flex  items-center  gap-[5px]  w-[247px] lg:w-[458px] lg:h-[64px] h-[40px] rounded-[30px]  border-[2px] border-(--color-stroke) ps-[5px] lg:ps-[15px] pe-[5px] ">
+
+                    <div
+                        class="w-[30px] h-[30px] lg:w-[32px] lg:h[32px] rounded-[50%] bg-(--color-stroke2) text-center content-center ">
+                        <i class="fa-solid fa-magnifying-glass text-(--color-purple)"></i>
+                    </div>
+                    <input type="text" placeholder="Search by product name" class=" outline-none w-[90%]" id="search_input ">
+
+                </div>
+
+                <div class="flex gap-[20px] items-center">
+                    <div id="carts_div" class="hover:cursor-pointer">
+                    <!-- <div id="cart_div_static"
+                        class="w-[50px] h-[35px] bg-(--color-purple) border-[2px] border-(--color-stroke2) rounded-[50px] text-center content-center">
+
+                        <img src="images/cart.png" alt="" class="m-auto">
+                    </div> -->
+
+                     <div class="w-[40px] h-[40px] lg:w-[95px] lg:h-[40px] bg-(--color-stroke2)   rounded-full flex items-center justify-center gap-[8px] p-[6px] pe-[12px] " id="cart_dynamic">
+                        <div class="bg-white w-[40px] h-[28px] rounded-full text-(--color-purple) text-[12px] font-semibold flex items-center justify-center gap-1 ">
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                            <span id="count_cart"></span>
+                        </div>
+                       <p class="text-[14px] font-medium capitalize hidden lg:block">cart </p> 
+                    </div>
+                    </div>
+
+                    <a href="log_&_reg.html"
+                        class="w-[120px] h-[42px] border-[1px] border-(--color-purple) rounded-[39px] text-center content-center hidden lg:block hover:bg-(--color-purple) hover:text-white">login</a>
+                </div>
+            </div>
+
+        </nav>
+         <div id="mobile_menu" class="hidden bg-white border-b border-(--color-stroke) px-6 py-4 md:hidden">
+            <ul class="flex flex-col gap-4">
+                <li><a href="index.html" class="font-semibold hover:text-(--color-purple)">Home</a></li>
+                <li><a href="category.html" class="font-semibold hover:text-(--color-purple)">Products</a></li>
+                <li><a href="log_&_reg.html" class="font-semibold hover:text-(--color-purple)">Login / Register</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class=" lg:flex">
+        <div class="hidden px-[20px] lg:w-[290px] lg:block ">
+            <div class="flex justify-between items-center pb-[20px]">
+                <p class="text-[16px] font-semibold ">Filters</p>
+                <p class="text-[14px]  font-semibold text-(--color-purple) cursor-pointer" id="reset_filters" >Reset</p>
+            </div>
+            <!-- --------filter category lg------------ -->
+            <div class="bg-(--color-stroke) w-[234px] h-[340px] m-auto rounded-[20px] p-[24px]">
+
+                <label class="flex items-center gap-3 cursor-pointer mb-[30px]">
+
+                    <input type="checkbox" class="sr-only peer">
+
+                    <div class="w-12 h-7 bg-[#E7E6E7] rounded-full 
+              relative transition-colors duration-300
+              peer-checked:bg-(--color-purple)">
+
+
+                        <div class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full
+                transition-transform duration-300
+                peer-checked:translate-x-4">
+                        </div>
+
+                    </div>
+
+                    <span class="text-[16px] font-semibold">Deals</span>
+                </label>
+
+                <label class="flex items-center gap-3 cursor-pointer mb-[30px]">
+
+                    <input type="checkbox" class="sr-only peer">
+
+                    <div class="w-12 h-7 bg-[#E7E6E7] rounded-full 
+              relative transition-colors duration-300
+              peer-checked:bg-(--color-purple)">
+
+
+                        <div class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full
+                transition-transform duration-300
+                peer-checked:translate-x-4">
+                        </div>
+
+                    </div>
+
+                    <span class="text-[16px] font-semibold">New Arrivals</span>
+                </label>
+
+                <label class="flex items-center gap-3 cursor-pointer mb-[30px]">
+
+                    <input type="checkbox" class="sr-only peer">
+
+                    <div class="w-12 h-7 bg-[#E7E6E7] rounded-full 
+              relative transition-colors duration-300
+              peer-checked:bg-(--color-purple)">
+
+
+                        <div class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full
+                transition-transform duration-300
+                peer-checked:translate-x-4">
+                        </div>
+
+                    </div>
+
+                    <span class="text-[16px] font-semibold">Near Me</span>
+                </label>
+
+            </div>
+        </div>
+<!-- ============================================== body =================================================== -->
+        <div id="gattegory_Body">
+
+            <div
+                class="flex items-center gap-[12px] overflow-x-auto px-[10px] scroll-smooth snap-x snap-mandatory ">
+                <!-- <div
+                    class="flex items-center gap-[5px] flex-shrink-0 ps-[8px] py-[8px] pe-[16px] rounded-[32px] bg-(--color-stroke) hover:bg-(--color-stroke2) border-[1px] border-(--color-stroke) hover:border-(--color-purple) hover:cursor-pointer">
+                    <img src="images/bread.png" alt="">
+                    <p>Bread</p>
+                </div> -->
+                
+            </div> 
+            <!-- ========================================ofer imgs==================================== -->
+            <section class=" flex justify-center   hidden px-[30x] py-[50px] gap-[20px] md:flex lg:flex ">
+                <img src="images/Rectangle 3.png" alt="" class="rounded-[32px] md:w-[322px] md:h-[248px] lg:w-[422px] lg:h-[248px] ">
+                <img src="images/Rectangle 4.png" alt="" class="rounded-[32px] md:w-[468px] md:h-[248px] lg:w-[568px] lg:h-[248px]">
+            </section>
+
+            <!-- ====================================cards of product==================================== -->
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-center px-[20px] gap-[10px] md:ps-[50px] lg:gap-[20px] py-[15px] mt-[10px] " id="products_container">
+                 <!-- <div class="lg:w-[236px] lg:h-[372px] hover:cursor-pointer" onclick="goToProduct(this)">
+                    <div
+                        class="w-[164px] h-[164px] rounded-[16px] bg-(--color-stroke2) content-center lg:w-[240px] lg:h-[240px] ">
+                        <img src="images/orange.png" alt="" class="m-auto">
+                    </div>
+                    <p class="text-[16px] font-simibold  my-[10px]">Singo pears</p>
+                    <p class="text-[#117E11] text-[16px] font-simibold ">$99.99 <span
+                            class="text-(--text-placeholder) line-through ms-[10px] text-[14px]">$200.00</span></p>
+                </div> -->
+
+               
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =================================footer=============================================== -->
+
+    <footer
+        class=" px-[18px] py-[50px] flex flex-col  gap-[50px] md:flex-row md:px[50px] md:mt-[100px] lg:flex-row  lg:px-[100px] lg:mt-[100px]  ">
+        <div>
+            <img src="images/Logo.png" alt="" class="w-[50px] ">
+        </div>
+        <div class="flex gap-[100px]  md:gap-[50px] lg:gap-[150px] ">
+            <div class="flex flex-col gap-[50px]  md:flex-row lg:gap-[150px] lg:flex-row">
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">About</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">About Us</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Our Branches</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Changelog</a>
+                </div>
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Help & Support</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">Terms of Privacy</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Privacy Policy</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Security</a>
+                </div>
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Social</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">Facebook</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Instagram</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Twitter</a>
+                </div>
+
+            </div>
+            <div class="flex flex-col gap-[50px]  md:flex-row lg:gap-[150px] lg:flex-row">
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Quick Links</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">FAQs</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Recipes</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Contact Us</a>
+                </div>
+
+                <div class="flex flex-col gap-[20px]">
+                    <p class="text-[14px] font-bold ">Company</p>
+                    <a href="" class="text-[14px] text-(--links-footer)">Blog</a>
+                    <a href="" class="text-[14px] text-(--links-footer)">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="./js/category.js"></script>
+</body>
+
+</html>
